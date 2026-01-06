@@ -472,6 +472,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Function to generate social sharing buttons
+  function generateShareButtons(activityName, activityDescription) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareText = `Check out ${activityName} at Mergington High School! ${activityDescription}`;
+    const shareUrl = baseUrl;
+    
+    // Encode parameters for URLs
+    const encodedText = encodeURIComponent(shareText);
+    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedTitle = encodeURIComponent(activityName);
+    
+    // Generate share URLs
+    const twitterUrl = `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+    const emailSubject = encodeURIComponent(`Check out ${activityName}!`);
+    const emailBody = encodeURIComponent(`${shareText}\n\nLearn more at: ${shareUrl}`);
+    const emailUrl = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+    
+    return `
+      <div class="social-share-container">
+        <span class="social-share-label">Share:</span>
+        <div class="social-share-buttons">
+          <a href="${twitterUrl}" target="_blank" rel="noopener noreferrer" class="share-button twitter" title="Share on X (Twitter)" aria-label="Share on X (Twitter)">
+            𝕏
+          </a>
+          <a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" class="share-button facebook" title="Share on Facebook" aria-label="Share on Facebook">
+            f
+          </a>
+          <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="share-button linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+            in
+          </a>
+          <a href="${emailUrl}" class="share-button email" title="Share via Email" aria-label="Share via Email">
+            ✉
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
   // Function to render a single activity card
   function renderActivityCard(name, details) {
     const activityCard = document.createElement("div");
@@ -528,6 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="tooltip-text">Regular meetings at this time throughout the semester</span>
       </p>
       ${capacityIndicator}
+      ${generateShareButtons(name, details.description)}
       <div class="participants-list">
         <h5>Current Participants:</h5>
         <ul>
