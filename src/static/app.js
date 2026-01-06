@@ -484,7 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const encodedTitle = encodeURIComponent(activityName);
     
     // Generate share URLs
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+    const twitterUrl = `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
     const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
     const emailSubject = encodeURIComponent(`Check out ${activityName}!`);
@@ -495,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="social-share-container">
         <span class="social-share-label">Share:</span>
         <div class="social-share-buttons">
-          <a href="${twitterUrl}" target="_blank" rel="noopener noreferrer" class="share-button twitter" title="Share on Twitter" aria-label="Share on Twitter">
+          <a href="${twitterUrl}" target="_blank" rel="noopener noreferrer" class="share-button twitter" title="Share on X (Twitter)" aria-label="Share on X (Twitter)">
             𝕏
           </a>
           <a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" class="share-button facebook" title="Share on Facebook" aria-label="Share on Facebook">
