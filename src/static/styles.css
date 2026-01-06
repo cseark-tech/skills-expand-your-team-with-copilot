@@ -709,12 +709,12 @@ footer {
 }
 
 .share-button.twitter {
-  background-color: #1DA1F2;
+  background-color: #000000;
   color: white;
 }
 
 .share-button.twitter:hover {
-  background-color: #0d8bd9;
+  background-color: #333333;
 }
 
 .share-button.facebook {
